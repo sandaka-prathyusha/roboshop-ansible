@@ -28,9 +28,9 @@
 
   - name: extract module
     ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+      src: /tmp/frontend.zip
+      dest: /usr/share/nginx/html
+      remote_src: yes
 
   - name: copy roboshop.conf file
     ansible.builtin.copy:
