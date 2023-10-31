@@ -23,13 +23,13 @@
     - name: check directory is already exist or not
       ansible.builtin.stat:
         path: /app
-        register: directory
+      register: directory
 
     - name: create /app directory
       ansible.builtin.file:
         path: /app
         state: directory
-      when: directory.stat.exist == False
+      when: directory.stat.exists == False
 
     - name: download application content
       ansible.builtin.get_url:
