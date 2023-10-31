@@ -54,6 +54,7 @@
 
     - name: daemon reload
       ansible.builtin.systemd:
+        name: catalogue
         state: restarted
         daemon_reload: true
 
