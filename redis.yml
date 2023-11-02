@@ -8,3 +8,5 @@
         state: installed
     - name: enable redis
       ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
+      disable_gpg_check: true
+
