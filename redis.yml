@@ -1,0 +1,10 @@
+- name: installing redis
+  hosts: redis
+  become: yes
+  tasks:
+    - name: install rpm
+      ansible.builtin.yum:
+        name:  https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+        state: installed
+    - name: enable redis
+      ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
