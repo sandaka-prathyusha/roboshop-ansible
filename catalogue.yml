@@ -3,7 +3,7 @@
   become: yes
   tasks:
     - name: setting Nodejs repo
-      ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+      ansible.builtin.shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
 
     - name: install node js
       ansible.builtin.yum:
@@ -54,9 +54,7 @@
 
     - name: daemon reload
       ansible.builtin.systemd:
-        name: catalogue
-        state: restarted
-        daemon_reload: true
+       daemon_reload: true
 
     - name: copy mongodb.repo
       ansible.builtin.copy:
@@ -69,7 +67,7 @@
         state: installed
 
     - name: load catalogue data
-      ansible.builtin.shell:  mongo --host  mongodb.nandu18.online  </app/schema/catalogue.js
+      ansible.builtin.shell:  mongo --host mongodb.nandu18.online < /app/schema/catalogue.js
 
     - name: restart catalogue
       ansible.builtin.service:
